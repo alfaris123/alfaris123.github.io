@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Perubahan Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: #4e54c8;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #8f94fb;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="konfirmasiPerubahan()">Ubah Kenangan</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function konfirmasiPerubahan() {
+            // Menampilkan kotak dialog konfirmasi dengan SweetAlert2
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Menghapus Kenanganmu dengannya",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'OK',
+                cancelButtonText: 'Batal',
+                confirmButtonColor: '#4e54c8',
+                cancelButtonColor: '#d33',
+                customClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika memilih "OK", tampilkan notifikasi ini
+                    Swal.fire({
+                        title: 'Mohon Maaf!',
+                        text: "Kenangan Anda tidak bisa dirubah, karena kenangan anda dengannya cukup indah.",
+                        icon: 'info',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4e54c8',
+                        customClass: {
+                            popup: 'animate__animated animate__zoomIn'
+                        }
+                    }).then(() => {
+                        // Setelah menekan OK, panggil kembali fungsi konfirmasiPerubahan
+                        konfirmasiPerubahan();
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    // Jika memilih "Batal", tampilkan notifikasi ini
+                    Swal.fire({
+                        title: 'Mohon Maaf!',
+                        text: "Kenanganmu dengannya gak bisa diulang.",
+                        icon: 'info',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#3085d6',
+                        customClass: {
+                            popup: 'animate__animated animate__fadeInUp'
+                        }
+                    }).then(() => {
+                        // Setelah menekan OK, panggil kembali fungsi konfirmasiPerubahan
+                        konfirmasiPerubahan();
+                    });
+                }
+            });
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+</body>
+</html>
