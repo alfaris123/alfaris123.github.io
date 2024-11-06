@@ -5,30 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SweetAlert Pop-Up Lari-lari (Mobile)</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        /* Style untuk tampilan sederhana */
+        <style>
         body {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f5f5f5;
         }
-        #triggerButton {
+        button {
             padding: 15px 30px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: #4e54c8;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
-            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #8f94fb;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
 <body>
 
-<button id="triggerAlert">Klik saja</button>
+    <button onclick="triggerAlert()">Ubah Kenangan</button>
 
 <script>
         document.getElementById('triggerAlert').addEventListener('click', function() {
