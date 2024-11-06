@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Perubahan Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: #4e54c8;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #8f94fb;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <button id="triggerAlert">Ubah Kenangan 2</button>
+    <a href="index.html" class="btn btn-info btn-lg m-2">Kembali</a>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script>
+        document.getElementById('triggerAlert').addEventListener('click', function() {
+            Swal.fire({
+                title: "Apa yang kamu cari?",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    secondAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    secondAlert();
+                }
+            });
+        });
+
+        function secondAlert() {
+            Swal.fire({
+                title: "apakah kamu ingin kembali padaku",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    thirdAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    batal();
+                }
+            });
+        }
+
+        function batal() {
+            Swal.fire({
+                title: "maaf meskipun kau batalkan, aku tidak akan kembali untukmu",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    thirdAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    batal1();
+                }
+            });
+        }
+
+        function batal1() {
+            Swal.fire({
+                title: "Sudah kubilang jangan kamu klik batal",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    thirdAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    batal2();
+                }
+            });
+        }
+
+        function batal2() {
+            Swal.fire({
+                title: "apakah kamu belum paham!!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    thirdAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    secondAlert();
+                }
+            });
+        }
+
+        function thirdAlert() {
+            Swal.fire({
+                title: "Maaf, aku sudah nyaman dengannya",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fourthAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    fourthAlert();
+                }
+            });
+        }
+
+        function fourthAlert() {
+            Swal.fire({
+                title: "Jangan lagi kau berharap lagi",
+                icon: "error",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            });
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</body>
+</html>
