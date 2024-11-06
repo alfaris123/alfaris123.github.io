@@ -31,41 +31,114 @@
 <button id="triggerButton">Klik untuk Pop-Up</button>
 
 <script>
-    const button = document.getElementById("triggerButton");
-
-    function movePopupRandomly() {
-        const swalPopup = document.querySelector('.swal2-popup');
-        const maxX = window.innerWidth - swalPopup.offsetWidth;
-        const maxY = window.innerHeight - swalPopup.offsetHeight;
-        
-        const randomX = Math.floor(Math.random() * maxX);
-        const randomY = Math.floor(Math.random() * maxY);
-        
-        swalPopup.style.position = "fixed";
-        swalPopup.style.left = `${randomX}px`;
-        swalPopup.style.top = `${randomY}px`;
-    }
-
-    function showMovingPopup() {
-        Swal.fire({
-            title: 'Kejar Aku!',
-            text: 'Coba tap aku kalau bisa!',
-            icon: 'info',
-            confirmButtonText: 'Klik di sini!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire('Selamat!', 'Kamu berhasil menangkap pop-up ini!', 'success');
-            }
+        document.getElementById('triggerAlert').addEventListener('click', function() {
+            Swal.fire({
+                title: "Apa yang kamu cari?",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    secondAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    secondAlert();
+                }
+            });
         });
 
-        const swalPopup = document.querySelector('.swal2-popup');
+        function secondAlert() {
+            Swal.fire({
+                title: "apakah kamu ingin kembali padaku",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    thirdAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    batal();
+                }
+            });
+        }
 
-        // Gunakan touchstart untuk perangkat mobile
-        swalPopup.addEventListener('touchstart', movePopupRandomly);
-    }
 
-    button.addEventListener("click", showMovingPopup);
-</script>
+        function batal() {
+            Swal.fire({
+                title: "maaf meskipun kau batalkan, aku tidak akan kembali untukmu",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    thirdAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    batal1();
+                }
+            });
+        }
+
+        function batal1() {
+            Swal.fire({
+                title: "Sudah kubilang jangan kamu klik batal",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    thirdAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    batal2();
+                }
+            });
+        }
+        function batal2() {
+            Swal.fire({
+                title: "apakah kamu belum paham!!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    thirdAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    secondAlert();
+                }
+            });
+        }
+
+
+
+        function thirdAlert() {
+            Swal.fire({
+                title: "Maaf, aku sudah nyaman dengannya",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fourthAlert();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    fourthAlert();
+                }
+            });
+        }
+
+        function fourthAlert() {
+            Swal.fire({
+                title: "Jangan lagi kau berharap lagi",
+                icon: "error",
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Batal"
+            });
+        }
+    </script>
 
 </body>
 </html>
