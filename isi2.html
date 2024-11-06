@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konfirmasi Perubahan Data</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css">
-        <style>
+    <style>
         body {
             display: flex;
             align-items: center;
@@ -35,9 +35,9 @@
 </head>
 <body>
 
-    <button onclick="triggerAlert()">Ubah Kenangan</button>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
-<script>
+    <button id="triggerAlert">Ubah Kenangan</button>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script>
         document.getElementById('triggerAlert').addEventListener('click', function() {
             Swal.fire({
                 title: "Apa yang kamu cari?",
@@ -70,7 +70,6 @@
             });
         }
 
-
         function batal() {
             Swal.fire({
                 title: "maaf meskipun kau batalkan, aku tidak akan kembali untukmu",
@@ -102,6 +101,7 @@
                 }
             });
         }
+
         function batal2() {
             Swal.fire({
                 title: "apakah kamu belum paham!!",
@@ -117,8 +117,6 @@
                 }
             });
         }
-
-
 
         function thirdAlert() {
             Swal.fire({
@@ -146,7 +144,6 @@
             });
         }
     </script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </body>
 </html>
